@@ -1,10 +1,12 @@
-import React from "react";
-import MealHeader from "./components/MealHeader";
+import React,{Fragment} from "react";
+import Header from "./components/Layout/Header";
 
 
 function App() {
   return (
-    <MealHeader/>
+    <Fragment>
+    <Header/>
+    </Fragment>
   );
 }
 

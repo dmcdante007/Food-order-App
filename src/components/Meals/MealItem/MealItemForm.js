@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import classes from "./MealItemForm.module.css";
 import Input from "../../UI/Input";
-import { createPortal } from "react-dom";
 
 const MealItemForm = (props) => {
     
@@ -21,7 +20,7 @@ const MealItemForm = (props) => {
         }}
       />
 
-      <button onClick={()=>setpopUp(true)}>+Add</button>
+      <button>+Add</button>
       
     </form>
   );

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./MealItemForm.module.css";
 import Input from "../../UI/Input";
+import { createPortal } from "react-dom";
 
 const MealItemForm = (props) => {
+    
+
   return (
     <form className={classes.form}>
+        
       <Input
         label="Amount"
         input={{
@@ -17,7 +21,8 @@ const MealItemForm = (props) => {
         }}
       />
 
-      <button onClick={props.onClickingAdd}>+Add</button>
+      <button onClick={()=>setpopUp(true)}>+Add</button>
+      
     </form>
   );
 };

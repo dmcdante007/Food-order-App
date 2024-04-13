@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
+import JustContext from "../UI/app-context/just-context";
 
 const Cart = (props) => {
   const cartitems = (
@@ -10,6 +11,8 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
+  const ctx = useContext(JustContext)
   return (
     <Modal>
       {cartitems}
@@ -18,7 +21,7 @@ const Cart = (props) => {
         <span>35.62</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]}>Close</button>
+        <button className={classes["button--alt"]} onClick={()=>ctx.viewis(false)} >Close</button>
         <button className={classes.button}>Order</button>
       </div>
     </Modal>

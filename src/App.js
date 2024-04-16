@@ -1,23 +1,26 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from './components/Cart/Cart';
-import JustContext from "./components/UI/app-context/just-context";
-
+import CartProvider from "./components/UI/app-context/cart-context";
 function App() {
-  const [viewIt, setViewit] = useState(false);
-  const handlerofView = ()=>{
-    setViewit(false)
+  const [viewIt, setViewit] = useState(false)
+
+  const hideCArtHanler =()=>{
+    setViewit(false);
   }
 
+  const showCartHandler =()=>{
+    setViewit(true);
+  }
   return (
-    <JustContext.Provider value={{viewis: handlerofView}}>
-      {viewIt && <Cart/>}
-      <Header onClickingcart= {setViewit}/>
+    <CartProvider>
+      {viewIt && <Cart onClose={hideCArtHanler}/>}
+      <Header onShowCart={showCartHandler}/>
       <main>
       <Meals/>
       </main>
-    </JustContext.Provider>
+    </CartProvider>
   );
 }
 

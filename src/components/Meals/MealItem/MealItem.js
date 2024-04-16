@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
+import JustContext from "../../UI/app-context/just-context";
 const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
-const onClickHandler =()=>{
-    React.createportal()
-}
+  const ctx = useContext(JustContext)
+  
+  
   return (
     <li className={classes.meal}>
       <div className={classes}>
@@ -14,7 +15,8 @@ const onClickHandler =()=>{
         <div className={classes.description}>{props.description}</div>
         <div className={classes.price}>{price}</div>
       </div>
-      <MealItemForm onClickingAdd={onClickHandler} />
+        {/* {console.log(props)} */}
+      <MealItemForm id={props.id} item= {props} />
     </li>
   );
 };
